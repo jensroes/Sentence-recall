@@ -9,6 +9,8 @@ output:
   theme: flatly
   toc: yes
   toc_depth: 1
+  spacing: double
+  indent: true
 bibliography: rfr/refSP.bib
 ---
 
@@ -145,7 +147,7 @@ The predictions for this model is as followed. Mixture observed in high and low 
 ## Model comparisons
 
 ```{r}
-read_csv("../loos/modelcomparisons.csv") %>%
+read_csv("loos/modelcomparisons.csv") %>%
   mutate(Models = c("M6", "M7", "M5", "M4", "M3", "M2", "M1"),
          Type = ifelse(Models %in% c("M1", "M2", "M3"), "LMM", "MoG")) %>%
   mutate(Models = recode(Models,  M6 = "\\@ref(eq:mog)",
@@ -187,7 +189,7 @@ mc %>%  knitr::kable(digits = 2,
 Figure \@ref(fig:LMM) shows the posterior distribution of the LMM model in equation \@ref(eq:lmm). Although this model was found to have a lower predictive performance than `r best_fit`, it is equivalent to standard analyses in the literature, and should not be neglected for comparability. The LMM model shows a systematic slowdown for sentences with high or low attachment but faster response latencies for global ambiguities.  
 
 ```{r LMM, fig.align='center', fig.cap='Posterior probability distributions of the onset latency of the LMM model in equation \\@ref(eq:lmm) by attachment type. Error bars indicate 66\\% and 95\\% posterior probability intervals.', fig.pos='H'}
-knitr::include_graphics("../manuscript/gfx/Exp3LMM.png")
+knitr::include_graphics("gfx/Exp3LMM.png")
 ```
 
 The implication of this model is that the syntactic configuration of sentences with either high or low attachment lead to a slowdown that is due to the adaptation of the incorrect parse. In contrast, this slowdown is not observed for global ambiguities as either parse is acceptable. However, it is unlikely that participants systematically selected high attachment in the low attachment condition and low attachment in the high attachment condition. Instead it is more plausible that the adaptation of the incorrect parse will lead to a slowdown in a subset of trials in a non-deterministic fashion. Indeed we found that the tested mixture models rendered a higher predictive performance compared to the standard analysis (see Table \@ref(tab:tablemc)).
@@ -196,7 +198,7 @@ Model `r best_fit` showed the highest predictive performance. Thus we observed a
 
 
 ```{r mog, fig.align='center', fig.cap='Posterior probability distribution of the mixture model \\@ref(eq:mog) with the highest predictive performance. Panel (a) shows the mixture components and panel (b) shows the mixing proportions by attachment type. Error bars indicate 66\\% and 95\\% posterior probability intervals.', fig.pos='H'}
-knitr::include_graphics("../manuscript/gfx/Exp3MoG.png")
+knitr::include_graphics("gfx/Exp3MoG.png")
 ```
 
 All attachment types were found to be a mixture of two distributions. We observed a larger proportion of long latencies for high attachment, a lower proportion for low attachment and an about equal proportion of both for global ambiguities. 
