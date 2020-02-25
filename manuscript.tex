@@ -1,0 +1,159 @@
+\documentclass[a4paper,man,natbib,noextraspace]{apa6}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{threeparttablex}
+\usepackage{graphicx}
+\usepackage{hyperref,booktabs,lineno}
+\usepackage{pdflscape}
+\usepackage{subcaption}
+\usepackage{longtable}
+\RequirePackage{caption}
+\DeclareCaptionTextFormat{tabletext}{\hspace{-\parindent}\textit{#1}}
+\captionsetup{singlelinecheck=off,justification=centering}
+\usepackage{linguex}
+\usepackage{tikz}
+\usetikzlibrary{backgrounds,positioning}
+
+\graphicspath{{./gfx/}}
+
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
+\renewcommand{\firstrefdash}{} %removes hyphen (1-a) so it appears as (1a)
+\hypersetup{
+	allbordercolors=white
+}
+\linespread{2}
+
+\newcommand\posscite[1]{\citeauthor{#1}'s (\citeyear{#1})}
+
+% For width of longtable
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+
+
+\title{Probabilistic advance planning of syntax in language production }
+\shorttitle{Probabilistic planning in language production }
+%\author{\hspace{2cm} }
+%\affiliation{\hspace{2cm}}
+\author{Jens Roeser, Mark Andrews, Mark Torrance, Thom Baguley} % add Rod and James?
+\affiliation{Department of Psychology, Nottingham Trent University, Nottingham, UK}
+
+
+
+
+
+
+\abstract{
+	
+
+	
+	}
+\keywords{Planning scope; language production; hierarchical planning; sentence processing; mixture models}
+
+	
+
+
+
+\begin{document}
+\maketitle
+
+
+\section{Introduction}
+
+
+%For preplanning of complex noun phrases that are larger than a determiner-noun pair, it is not clear how the production system ``knows'' the size of the to-be-encoded syntactic unit prior to  processing. In order for the system to avoid advance planning beyond the first determiner-noun pair or, under certain conditions, to plan beyond the first determiner-noun pair, the production system must decide prior to the structure-building operation or lexical processing whether to operate linear or whether planning must scope beyond the first noun. This is essential for advance planning to be less demanding for simple -- as opposed to co- or subordinated -- noun phrases \citep[e.g.][]{all07, not07, smi99, wheeldon2013} or noun phrases with structurally non-adjacent dependencies \citep{lee13}. 
+
+% Alternatives
+%In other words, before submitting a message to the language processor, the size of the message chunk needs to be determined. \citet[p.~205]{kempen1987incremental} pointed out that advance planning could, in principle, involve the parallel generation of temporary structures. Two alternative structures could be preplanned and the incorrect structure would eventually be discarded. Alternatively, structures might be selected randomly. If the selected structure does not fit the message, it would need to be changed or modified. However, if it is indeed the case that alternative structures are preplanned at random or in parallel, one would not expect to observe consistently shorter latencies when syntactic structure permits incremental planning of smaller syntactic units. Therefore, it is less plausible that the language processor decides from the generated syntactic structure whether or not incremental planning is possible. It therefore seems unlikely that shorter preplanning durations for utterances that permit incremental planning result from a process that derives candidate syntactic structures. 
+
+
+% Models of language planning: debate whether syntax requires preplanning
+% Evidence from complex NPs
+% This evidence is interpreted deterministically as obligated planning
+% Under some conditions syntax needs to be preplanned
+% From N4P paper the logical problem of this: how do we decide about the syntactic planning unit?
+% Two possibilities
+% Preplanning syntax might be probabilistic: we may or may not preplan syntax
+% This might happen randomly or in parallel (Kempen, van hoen 1987) -> competition vs horse race
+% This has two consequences for the onset latencies in complex NP planning: first the effect is not systematic but more likely in coordinated NPs. Second the increased latencies are not related to difficulty associated with syntactic planning but with the correction of incorrecly chose structures. This has implications for the modularity discussion in sentence planning and is in line with discussions on syntactic parsing in reading. In general the understanding is that it is not the structural complexity itself that slows down reading but the correction of incorrectly adopted parses
+
+
+% Reanalysis
+% Sentence recall for coordinated NPs no question
+% Sentence recall for coordinated NPs questions: to emphazis the type of coordination
+% Rod's data for GP data
+% van Gompel sentence recall: attachment ambiguities/ ambiguity advantage reflects probabilistic choice of unambiguous attachment structures -- incorrect parse slows down reading
+
+
+\section{Experiment~1} % Re-analysis of sentence onset latency in mixture models as described in \cite{vasishth2017} and \cite{gelman2014}
+
+
+\subsection{Method}
+
+\subsubsection{Participants}
+
+%Thirty-two psychology students (5 male, mean age~=~19.7 years, \textit{SD}~=~3.0, range:~18--32) participated as part of a research-reward scheme. All participants were self-reported native speakers of British English, free of linguistic impairments, and had normal or corrected-to-normal vision. Eight participants were replace because they failed to produce a sufficient number of descriptions that matched the targeted structures.
+
+\subsubsection{Design}
+
+\subsubsection{Materials}
+
+\subsubsection{Procedure}
+
+\subsection{Results}
+
+%All data were analysed using Bayesian linear mixed effects models \citep{gelman2014, kruschke2014doing, mcelreath2016statistical}. The probabilistic programming language Stan and the R interface Rstan \citep{carpenter2016stan, hoffman2014no, rstan, rstan2} was used along with the rstanarm package \cite{rstanarm}. Models were fitted with maximal random effects structure \citep{barr2013random, bates2015parsimonious}. To assess the effect magnitude all predictors were sum coded. The 95\% posterior probability mass -- 95\% credible intervals (henceforth, CrI) -- was calculated from the posterior samples. 95\% CrIs that do not contain zero support the presence of an effect of the predictor onto the outcome variable that is different from zero \citep[see][]{kruschke2012time, sorensen2016bayesian}. Although appropriate data transformations were used, the presented quantities were back-transformed into their native units to ease interpretation (i.e. ms instead of log ms; proportion instead of logits).
+
+%To assess the strength of support for a given effect of interest over the null hypothesis, Bayes Factors (henceforth, BF) were calculated using the Savage-Dickey method for nested models \citep[see][]{nicenboim2016statistical, dickey1970weighted}. BFs larger than 10 indicate strong evidence for a statistically meaningful effect \citep[see e.g.][]{bag12, jeffreys1961theory, lee2014bayesian, wagenmakers2010bayesian}. For example BF~=~2 reflect that the data are twice as likely under the alternative hypothesis than under the null hypothesis.\footnote{Models were fitted with weak, locally uniform priors and by-subject and by-item adjustments \citep[see][]{nicenboim2016statistical, sorensen2016bayesian} and run with 2,000 iterations on 4 chains with a warm-up of 1,000 iterations and no thinning. Model convergence was confirmed by Rubin-Gelman statistics ($\hat{R}$~=~1) \citep{gelman1992} and inspection of the Markov chain Monte Carlo chains.}
+
+\subsection{Discussion}
+
+\section{Experiment~2}
+
+\subsection{Method}
+
+\subsubsection{Participants}
+
+\subsubsection{Design \& Material}
+
+\subsubsection{Procedure}
+
+\subsection{Results}
+
+\subsection{Discussion}
+
+\section{General Discussion}
+
+\section{Conclusion}
+
+
+
+
+
+
+
+
+
+\section*{Acknowledgements}
+
+%This research was funded by XXX Scholarship scheme awarded to the first author.
+%This research was funded by the Nottingham Trent University VC Scholarship scheme awarded to the first author and is part of his PhD thesis.
+% QR funding
+
+\bibliography{rfr/refSP.bib}
+
+%\appendix
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
