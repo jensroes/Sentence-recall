@@ -7,7 +7,7 @@ library(tidybayes)
 m <- readRDS("stanout/MoG.rda")
 
 as.data.frame(m, pars = c("beta", "delta") ) %>%
-  transmute(delta1 = exp(beta + delta),
+  transmute(delta = exp(beta + delta),
 #            delta2 = exp(beta) * exp(delta),
             beta = exp(beta)) %>%
   gather(Parameter, value) %>%
@@ -28,7 +28,7 @@ ps_beta %>%
   ggplot(aes(y = .0, x = value, fill = Parameter)) +
   stat_halfeyeh(alpha = .45) +
   scale_fill_manual("Mixture components", values = c("violetred4", "olivedrab4")) +
-  scale_y_continuous(limits = c(0, 1)) +
+  scale_y_continuous(limits = c(0, 1), position = "right") +
   labs(x = bquote(atop("Onset latency [in msecs]")),
        y = "",
        title = "a. Mixture components") +
@@ -36,7 +36,8 @@ ps_beta %>%
   theme(panel.background = element_rect(fill = "transparent"), # bg of the panel
         plot.background = element_rect(fill = "transparent", color = NA), 
         axis.ticks.y = element_blank(),
-        axis.title.x = element_text(vjust = -.25),
+#        axis.title.x = element_text(vjust = -.25),
+        plot.margin = unit(c(.15,1.3, -.25,.15), "cm"),
         axis.text.y = element_blank(),
         panel.grid.minor = element_blank(),
         legend.position = "none") -> beta_plot;beta_plot
@@ -57,10 +58,11 @@ ps_theta %>%
         panel.grid.minor = element_blank(),
         legend.position = "none") -> theta_plot; theta_plot
 
-p <- grid.arrange(beta_plot, theta_plot, ncol = 2, widths =c(.35,.65))
+#p <- grid.arrange(beta_plot, theta_plot, ncol = 2, widths =c(.35,.65))
+p <- grid.arrange(beta_plot, theta_plot, ncol = 1, heights =c(.35,.65))
 
-ggsave(filename = "../manuscript/gfx/Exp3MoG.png", plot = p, 
-       width = 6, height = 3,
+ggsave(filename = "gfx/Exp3MoG.png", plot = p, 
+       width = 6, height = 4.5,
        device = png(),
        dpi = 320,
        bg = "transparent")

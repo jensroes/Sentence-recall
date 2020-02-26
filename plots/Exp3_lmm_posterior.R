@@ -31,10 +31,10 @@ as.data.frame(m, pars = c("beta") ) %>%
         legend.position = "bottom",
         axis.ticks.y = element_blank()) -> beta_plot;beta_plot
 
-ggsave(filename = "../manuscript/gfx/Exp3LMM.png", plot = beta_plot, 
+ggsave(filename = "gfx/Exp3LMM.png", plot = beta_plot, 
        device = png(),
        dpi = 320,
-       width = 6, height = 3, bg = "transparent")
+       width = 6, height = 2.5, bg = "transparent")
 
 
 
