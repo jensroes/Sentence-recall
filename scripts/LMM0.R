@@ -8,7 +8,7 @@ options(mc.cores = parallel::detectCores())
 # Sampling parameters
 set.seed(125)
 n_chain = n_core = 3 # number of cores/chains
-iterations = 8000
+iterations = 20000
 
 d <- read_csv("dfs/attachment.csv") %>%
   filter(
@@ -54,7 +54,7 @@ start_ll <- lapply(1:n_chain, function(id) start(chain_id = id) )
 # --------------
 #---- 
 # Load model
-lmm <- stan_model(file = "stanin/LMM_null.stan")
+lmm <- stan_model(file = "stanin/LMM0.stan")
 
 # Check model
 m <- sampling(lmm, chain = 1, iter = 1, data = dat) 
@@ -86,5 +86,5 @@ traceplot(m, param, inc_warmup = FALSE )
 summary(print(m, pars = param, probs = c(.025,.975)))
 
 saveRDS(m, 
-        file = "stanout/LMM_null.rda", 
+        file = "stanout/LMM0.rda", 
         compress = "xz")

@@ -1,3 +1,4 @@
+gc()
 library(tidyverse)
 library(rstan)
 library(rethinking)
@@ -8,7 +9,7 @@ options(mc.cores = parallel::detectCores())
 # Sampling parameters
 set.seed(125)
 n_chain = n_core = 3 # number of cores/chains
-iterations = 8000
+iterations = 20000
 
 d <- read_csv("dfs/attachment.csv") %>%
   filter(

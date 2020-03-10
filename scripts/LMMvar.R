@@ -1,9 +1,9 @@
 # Load packages
+rm(list=ls()); gc()
 #source("functions/functions.R")
 library(tidyverse)
 library(rstan)
 library(gridExtra)
-library(rethinking)
 library(magrittr)
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
@@ -12,7 +12,7 @@ options(mc.cores = parallel::detectCores())
 # Sampling parameters
 set.seed(125)
 n_chain = n_core = 3 # number of cores/chains
-iterations = 8000
+iterations = 20000
 
 d <- read_csv("dfs/attachment.csv") %>%
   filter(

@@ -1,4 +1,5 @@
 # Load packages
+rm(list=ls()); gc()
 #source("functions/functions.R")
 library(tidyverse)
 library(rstan)
@@ -10,7 +11,7 @@ options(mc.cores = parallel::detectCores())
 # Sampling parameters
 set.seed(125)
 n_chain = n_core = 3 # number of cores/chains
-iterations = 8000
+iterations = 20000
 
 d <- read_csv("dfs/attachment.csv") %>%
   filter(
@@ -74,7 +75,7 @@ m <- sampling(mog,
               chains = n_chain, 
               cores = n_core, 
               include = FALSE,
-              pars = c("mu", "log_theta", "z_w", "z_u", "L_u", "L_w"), 
+              pars = c("mu", "log_theta"), 
               save_warmup = FALSE, # Don't save the warmup
               refresh = 250,
               thin = 1,

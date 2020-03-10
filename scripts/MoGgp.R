@@ -10,7 +10,7 @@ options(mc.cores = parallel::detectCores())
 # Sampling parameters
 set.seed(125)
 n_chain = n_core = 3 # number of cores/chains
-iterations = 8000
+iterations = 20000
 
 d <- read_csv("dfs/attachment.csv") %>%
   filter(
@@ -59,7 +59,7 @@ start_ll <- lapply(1:n_chain, function(id) start(chain_id = id) )
 # --------------
 #---- 
 # Load modelp
-mog <- stan_model(file = "stanin/MoGK2gp.stan")
+mog <- stan_model(file = "stanin/MoGgp.stan")
 
 # Check model
 m <- sampling(mog, chain = 1, iter = 1, data = dat) 
@@ -86,7 +86,7 @@ m <- sampling(mog,
 
 # Save posterior
 saveRDS(m, 
-        file = "stanout/MoGK2gp.rda",
+        file = "stanout/MoGgp.rda",
         compress = "xz")
 
 # Traceplots

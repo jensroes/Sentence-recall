@@ -397,7 +397,7 @@ summary {
 </div>
 <div id="model-descriptions" class="section level1">
 <h1><span class="header-section-number">3</span> Model descriptions</h1>
-<p>The following models aim to compare different predictions on how attachment ambiguities affect recall-onset latencies. Data were analysed in Bayesian models <span class="citation">(Gelman et al. 2014; McElreath 2016)</span>. All models were implemented in the probabilistic programming language Stan <span class="citation">(Carpenter et al. 2016; Hoffman and Gelman 2014)</span>. Models were fitted with weakly informative priors <span class="citation">(see McElreath 2016)</span> and run with 8,000 iterations on 3 chains with a warm-up of 4,000 iterations and no thinning. Model convergence was confirmed by the Rubin-Gelman statistic <span class="citation">(Gelman and Rubin 1992)</span> and inspection of the Markov chain Monte Carlo chains. All scripts and Stan models with the names identified below can be found on <a href="https://github.com/jensroes/Sentence-recall">GitHub</a>.</p>
+<p>The following models aim to compare different predictions on how attachment ambiguities affect recall-onset latencies. Data were analysed in Bayesian models <span class="citation">(Gelman et al. 2014; McElreath 2016)</span>. All models were implemented in the probabilistic programming language Stan <span class="citation">(Carpenter et al. 2016; Hoffman and Gelman 2014)</span>. Models were fitted with weakly informative priors <span class="citation">(see McElreath 2016)</span> and run with 20,000 iterations on 3 chains with a warm-up of 10,000 iterations and no thinning. Model convergence was confirmed by the Rubin-Gelman statistic <span class="citation">(Gelman and Rubin 1992)</span> and inspection of the Markov chain Monte Carlo chains. All scripts and Stan models with the names identified below can be found on <a href="https://github.com/jensroes/Sentence-recall">GitHub</a>.</p>
 <p>For all models we assume that onset latencies vary across participants <span class="math inline">\(I\)</span>. The variance associated with <span class="math inline">\(i\)</span>s participants is <span class="math inline">\(u_i\)</span> and is normal distributed around 0 with a between participants variance <span class="math inline">\(\sigma_u^2\)</span>, i.e. <span class="math inline">\(u_i \sim Normal(0, \sigma_u^2)\)</span> where <span class="math inline">\(i = 1, \dots, I\)</span>. Similarly each item <span class="math inline">\(j\)</span> (sets of stimulus sentences) with <span class="math inline">\(j = 1, \dots, J\)</span> has a variance <span class="math inline">\(w_j\)</span> that is distributed around 0 with a between item variance <span class="math inline">\(\sigma_w^2\)</span>, i.e. <span class="math inline">\(w_j \sim Normal(0, \sigma_w^2)\)</span>. Participants and items are added to the models as random intercepts <span class="citation">(Barr et al. 2013; Bates et al. 2015)</span>. Further we assume that the onset latency comes from a log-normal distribution.</p>
 <div id="linear-mixed-effects-models" class="section level2">
 <h2><span class="header-section-number">3.1</span> Linear mixed effects models</h2>
@@ -506,10 +506,10 @@ SE
 <a href="#eq:mog0">(3.4)</a>
 </td>
 <td style="text-align:right;width: 5em; ">
--2.85
+-2.46
 </td>
 <td style="text-align:right;width: 5em; ">
-3.08
+3.07
 </td>
 </tr>
 <tr>
@@ -517,10 +517,10 @@ SE
 <a href="#eq:moggp">(3.6)</a>
 </td>
 <td style="text-align:right;width: 5em; ">
--15.71
+-15.93
 </td>
 <td style="text-align:right;width: 5em; ">
-8.95
+8.97
 </td>
 </tr>
 <tr>
@@ -528,10 +528,10 @@ SE
 <a href="#eq:moghigh">(3.5)</a>
 </td>
 <td style="text-align:right;width: 5em; ">
--29.31
+-29.22
 </td>
 <td style="text-align:right;width: 5em; ">
-10.03
+11.09
 </td>
 </tr>
 <tr>
@@ -539,10 +539,10 @@ SE
 <a href="#eq:lmmvar">(3.3)</a>
 </td>
 <td style="text-align:right;width: 5em; ">
--29.79
+-29.26
 </td>
 <td style="text-align:right;width: 5em; ">
-11.05
+10.05
 </td>
 </tr>
 <tr>
@@ -550,10 +550,10 @@ SE
 <a href="#eq:lmm">(3.2)</a>
 </td>
 <td style="text-align:right;width: 5em; ">
--29.81
+-30.23
 </td>
 <td style="text-align:right;width: 5em; ">
-11.08
+11.06
 </td>
 </tr>
 <tr>
@@ -561,7 +561,7 @@ SE
 <a href="#eq:lmm0">(3.1)</a>
 </td>
 <td style="text-align:right;width: 5em; ">
--32.61
+-33.10
 </td>
 <td style="text-align:right;width: 5em; ">
 10.72
